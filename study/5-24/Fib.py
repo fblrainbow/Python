@@ -81,4 +81,5 @@ class Student(object):
 	def __call__(self):
 		print('My name is %s.'%self.name)
 s = Student('Michael')
-print s()
+print callable(Student()),callable(max),callable([1,2,3])
+

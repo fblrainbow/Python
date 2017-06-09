@@ -1,0 +1,2 @@
+#!/bin/bash
+cat {case-1.sh,case.sh}>com.sh

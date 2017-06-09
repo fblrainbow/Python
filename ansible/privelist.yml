@@ -1,0 +1,11 @@
+---
+- hosts: sensor
+  remote_user: root
+  tasks:
+    - name: checking sensor runing
+      shell: pgrep sensor
+      register: output
+    - name: time
+      shell: date
+      register: time
+    - debug: msg="IP {{inventory_hostname}} sensor pid is {{output.stdout}} in {{time.stdout}}."

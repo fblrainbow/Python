@@ -1,0 +1,33 @@
+zmq
+libcstl
+rbtree
+avl
+ipc
+ansible
+
+
+
+
+重要命令
+setsid ./run.sh >> log 后台运行
+pgrep sensor 查询进程ID
+killall -9 sensor 杀死进程
+
+
+
+
+
+
+
+
+https://zhuanlan.zhihu.com/p/23005451
+
+
+https://devdocs.io
+
+http://geektyper.com/
+
+
+
+
+https://www.codewars.com/

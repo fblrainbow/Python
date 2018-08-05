@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link href="https://blog.csdn.net/qq_37608398/article/details/80358874" rel="canonical"/>
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta content="IE=Edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="always" name="referrer">
+<meta content="前面写的教程需要一步步去查看执行的结果，看到很多回复的朋友说碰到很多问题，这次教程是通过Shell脚本直接一次到位，不需要那么多繁琐的操作 
+工具：putty（登录后台运行脚本）、WinScp（上传文件） 
+脚本文件：
+
+文件名：oneKeyInstall.sh
+
+#!/bin/bash
+apt-get update
+apt-get upgrade
+apt-get install ubuntu-d..." name="description"/>
+<meta content="shell 一键装桌面" name="keywords"/>
+<meta content="no-siteapp" http-equiv="Cache-Control"/><link href="#" media="handheld" rel="alternate"/>
+<meta content="5a59773ab8077d4a62bf469ab966a63b_1497598848" name="shenma-site-verification">
+<script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+<link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+<title>阿里云服务器ECS Ubuntu16.04-64-bit学习之一：配置桌面(进阶-脚本一键执行) - CSDN博客</title>
+<link href="https://csdnimg.cn/release/phoenix/template/css/detail-35dacf1dab.min.css" rel="stylesheet">
+<link href="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-02ffddfbf5.min.css" rel="stylesheet">
+<script type="text/javascript">
+        var username = "qq_37608398";
+        var blog_address = "https://blog.csdn.net/qq_37608398";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "qq_37608398"; 
+        var isShowAds = true;
+        var isOwner = true;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/qq_37608398/article/details/80358874"
+        var blogUrl = "https://blog.csdn.net/";
+        var curSkin = "skin3-template";
+    </script>
+<script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+<script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+<script charset="utf-8" src="https://csdnimg.cn/pubfooter/js/tracking-1.0.2.js" type="text/javascript"></script>
+<link href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css" rel="stylesheet">
+<style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</link></link></link></link></meta></meta></meta></meta></meta></meta></meta></head>
+<body>
+<link href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css" rel="stylesheet">
+<script domain="https://blog.csdn.net/" id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript"></script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/fonts/csdnc/csdnc.js"></script><link href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css" rel="stylesheet">
+<link href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css" rel="stylesheet">
+<script src="//static.mediav.com/js/mvf_news_feed.js" type="text/javascript"></script>
+<header>
+<div class="container d-flex clearfix">
+<div class="title-box">
+<h2 class="title-blog">
+<a href="https://blog.csdn.net/qq_37608398">Rainbow</a>
+</h2>
+<p class="description">记录自己在IT成长中学到的东西，并分享出来给大家一起学习！</p>
+</div>
+<div class="opt-box d-flex justify-content-end">
+<a class="btn btn-sm" href="https://blog.csdn.net/qq_37608398/rss/list">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-rss"></use>
+</svg>RSS订阅</a>
+<a class="btn btn-sm" href="https://mp.csdn.net/postlist">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-cog"></use>
+</svg>管理博客</a>
+</div>
+</div>
+</header><script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix pt0" id="mainBox">
+<main>
+<div class="blog-content-box">
+<div class="article-title-box">
+<span class="article-type type-1 float-left">原</span> <h1 class="title-article">阿里云服务器ECS Ubuntu16.04-64-bit学习之一：配置桌面(进阶-脚本一键执行)</h1>
+</div>
+<div class="article-info-box">
+<div class="article-bar-top d-flex">
+<span class="c-gray">置顶</span>
+<span class="time">2018年05月18日 00:56:22</span>
+<div class="float-right">
+<span class="read-count">阅读数：591</span>
+<a class="href-article-edit" href="https://mp.csdn.net/postedit/80358874">编辑</a>
+</div>
+</div>
+</div>
+<article>
+<div class="article_content clearfix csdn-tracking-statistics" data-dsm="post" data-mod="popu_307" data-pid="blog" id="article_content">
+<div class="markdown_views">
+<p><strong>前面写的<a href="https://blog.csdn.net/qq_37608398/article/details/78155568">教程</a>需要一步步去查看执行的结果，看到很多回复的朋友说碰到很多问题，这次教程是通过Shell脚本直接一次到位，不需要那么多繁琐的操作</strong> <br>
+<strong>工具</strong>：<em>putty</em>（登录后台运行脚本）、<em>WinScp</em>（上传文件） <br>
+<strong>脚本文件</strong>：</br></br></p>
+<pre class="prettyprint"><code class=" hljs avrasm">文件名：oneKeyInstall<span class="hljs-preprocessor">.sh</span></code></pre>
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-shebang">#!/bin/bash</span>
+apt-get update
+apt-get upgrade
+apt-get install ubuntu-desktop
+ping <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> -c <span class="hljs-number">5</span>
+mv <span class="hljs-number">50</span>-ubuntu.conf /usr/share/lightdm/lightdm.conf.d/<span class="hljs-number">50</span>-ubuntu.conf
+mv <span class="hljs-number">1</span>.profile /root/.profile
+ping <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span> -c <span class="hljs-number">5</span>
+reboot</code></pre>
+<pre class="prettyprint"><code class=" hljs ">配置文件-1：1.profile</code></pre>
+<pre class="prettyprint"><code class=" hljs bash"><span class="hljs-comment"># ~/.profile: executed by Bourne-compatible login shells.</span>
+
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$BASH</span>"</span> ]; <span class="hljs-keyword">then</span>
+  <span class="hljs-keyword">if</span> [ <span class="hljs-operator">-f</span> ~/.bashrc ]; <span class="hljs-keyword">then</span>
+    . ~/.bashrc
+  <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">fi</span>
+tty <span class="hljs-operator">-s</span> &amp;&amp; mesg n || <span class="hljs-literal">true</span>
+</code></pre>
+<pre class="prettyprint"><code class=" hljs avrasm">配置文件-<span class="hljs-number">2</span>：<span class="hljs-number">50</span>-ubuntu<span class="hljs-preprocessor">.conf</span></code></pre>
+<pre class="prettyprint"><code class=" hljs ini"><span class="hljs-title">[Seat:*]</span>
+<span class="hljs-setting">user-session=<span class="hljs-value">ubuntu</span></span>
+<span class="hljs-setting">greeter-show-manual-login=<span class="hljs-value"><span class="hljs-keyword">true</span></span></span>
+<span class="hljs-setting">allow-guest=<span class="hljs-value"><span class="hljs-keyword">false</span></span></span></code></pre>
+<p><strong>注意：如果是将这些代码直接写到文件（在win7），一定要保存为unix-ANSI格式，否则win7默认是gbk，复制到linux系统会执行可能会由于编码问题而失败（</strong>可以直接下载我的<a href="https://download.csdn.net/download/qq_37608398/10421880">资源文件</a><strong>）</strong> <br>
+<img alt="这里写图片描述" src="https://img-blog.csdn.net/20180518004853826?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NjA4Mzk4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" title=""> <br>
+操作步骤： <br>
+1、通过WinSCP文件传输工具将这三个文件放在服务器的同一个文件夹下 <br>
+<img alt="这里写图片描述" src="https://img-blog.csdn.net/20180518005138315?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NjA4Mzk4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" title=""/></br></br></br></img></br></p>
+<p>2、putty登录后台执行脚本 <br>
+<strong>bash oneKeyInstall.sh</strong> <br>
+<img alt="这里写图片描述" src="https://img-blog.csdn.net/20180518005351436?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NjA4Mzk4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" title=""> <br>
+3、执行结束后在阿里云终端登录（可以用root登录） <br>
+<img alt="这里写图片描述" src="https://img-blog.csdn.net/20180518005428864?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NjA4Mzk4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" title=""> <br>
+<img alt="这里写图片描述" src="https://img-blog.csdn.net/20180518005455757?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NjA4Mzk4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" title=""/></br></img></br></br></img></br></br></p>
+<p><strong>是不是很简单呢？小伙伴快去试试吧</strong></p> </div>
+<link href="https://csdnimg.cn/release/phoenix/template/css/markdown_views-ea0013b516.css" rel="stylesheet"/>
+</div>
+</article>
+<div class="article-bar-bottom">
+<div class="article-copyright">
+      版权声明：本文为博主原创文章，未经博主允许不得转载。      https://blog.csdn.net/qq_37608398/article/details/80358874    </div>
+<div class="tags-box artic-tag-box">
+<span class="label">文章标签：</span>
+<a class="tag-link" href="http://so.csdn.net/so/search/s.do?q=shell 一键装桌面&amp;t=blog" target="_blank">shell 一键装桌面           </a>
+</div>
+<div class="tags-box">
+<span class="label">个人分类：</span>
+<a class="tag-link" href="https://blog.csdn.net/qq_37608398/article/category/7207172" target="_blank">阿里云服务器            <a class="tag-link" href="https://blog.csdn.net/qq_37608398/article/category/6912043" target="_blank">Study--ing            </a>
+</a></div>
+</div>
+<!-- !empty($pre_next_article[0]) -->
+</div>
+<script>
+    $(".MathJax").remove();
+</script>
+<script src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      "HTML-CSS": {
+          linebreaks: { automatic: true, width: "94%container" },
+          imageFont: null
+      },
+      tex2jax: {
+        preview: "none"
+      },
+      mml2jax: {
+        preview: 'none'
+      }
+  });
+</script>
+<script>
+  (function(){
+    var btnReadmore = $("#btn-readmore");
+    if(btnReadmore.length>0){
+      var winH = $(window).height();
+      var articleBox = $("div.article_content");
+      var artH = articleBox.height();
+      if(artH > winH*2){
+        articleBox.css({
+          'height':winH*2+'px',
+          'overflow':'hidden'
+        })
+        btnReadmore.click(function(){
+          articleBox.removeAttr("style");
+          $(this).parent().remove();
+        })
+      }else{
+        btnReadmore.parent().remove();
+      }
+    }
+  })()
+</script> <div class="edu-promotion"></div>
+<script type="text/javascript">
+  var edu_ad_is_big_data = 0;
+  var edu_ad_id_mapping = {"0":["https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"1":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=web1"],"8":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"2":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"3":["https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1","https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"6":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"12":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"14":["https:\/\/edu.csdn.net\/sp\/blog.php?type=web1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"15":["https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1","https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"16":["https:\/\/edu.csdn.net\/sp\/blog.php?type=web1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"28":["https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"29":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"30":["https:\/\/edu.csdn.net\/sp\/blog.php?type=python1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"32":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"33":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"35":["https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1","https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"37":["https:\/\/edu.csdn.net\/sp\/blog.php?type=web1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"7":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"17":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"34":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=python1"],"36":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1","https:\/\/edu.csdn.net\/sp\/blog.php?type=ai1"],"31":["https:\/\/edu.csdn.net\/sp\/blog.php?type=python1","https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"19":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"],"20":["https:\/\/edu.csdn.net\/sp\/blog.php?type=bigdata1"]};
+</script> <a id="commentBox"></a>
+<div class="comment-box">
+<div class="comment-edit-box d-flex">
+<a id="commentsedit"></a>
+<div class="user-img">
+<img src="https://avatar.csdn.net/2/F/B/3_qq_37608398.jpg">
+</img></div>
+<form id="commentform">
+<input id="comment_replyId" type="hidden">
+<textarea class="comment-content" id="comment_content" name="comment_content" placeholder="想对作者说点什么"></textarea>
+<div class="opt-box"> <!-- d-flex -->
+<div class="add_code" id="ubbtools">
+<a code="code" href="#insertcode" target="_self"><i class="icon iconfont icon-daima"></i></a>
+</div>
+<input id="comment_replyId" name="comment_replyId" type="hidden">
+<input id="comment_userId" name="comment_userId" type="hidden" value="">
+<input id="commentId" name="commentId" type="hidden" value="">
+<div class="csdn-tracking-statistics tracking-click" data-mod="popu_384" style="display: none;"><a class="comment_area_btn" href="#" target="_blank">发表评论</a></div>
+<div class="dropdown" id="myDrap">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button">
+<div class="txt-selected text-truncate">添加代码片</div>
+<svg aria-hidden="true" class="icon d-block">
+<use xlink:href="#csdnc-triangledown"></use>
+</svg>
+</a>
+<ul aria-labelledby="drop4" class="dropdown-menu" id="commentCode">
+<li><a data-code="html">HTML/XML</a></li>
+<li><a data-code="objc">objective-c</a></li>
+<li><a data-code="ruby">Ruby</a></li>
+<li><a data-code="php">PHP</a></li>
+<li><a data-code="csharp">C</a></li>
+<li><a data-code="cpp">C++</a></li>
+<li><a data-code="javascript">JavaScript</a></li>
+<li><a data-code="python">Python</a></li>
+<li><a data-code="java">Java</a></li>
+<li><a data-code="css">CSS</a></li>
+<li><a data-code="sql">SQL</a></li>
+<li><a data-code="plain">其它</a></li>
+</ul>
+</div>
+<div class="right-box">
+<span class="tip" id="tip_comment">还能输入<em>1000</em>个字符</span>
+<input class="btn btn-sm btn-red btn-comment" type="submit" value="发表评论">
+</input></div>
+</input></input></input></div>
+</input></form>
+</div>
+<div class="comment-list-container">
+<a id="comments"></a>
+<div class="comment-list-box">
+</div>
+<div class="pagination-box d-none" id="commentPage"></div>
+<div class="opt-box text-center">
+<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+</div>
+</div>
+</div> <div class="recommend-box">
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/mr_oldcold/article/details/79751622" strategy="BlogCommendFromBaidu_0" target="_blank">
+        阿里云<em>ECS</em> ubuntu16.04安装<em>桌面</em>图形界面      </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/mr_oldcold/article/details/79751622" target="_blank">
+        头次租阿里的ubuntu16.04服务器,想搞个图形界面玩玩,各种教程试了几个小时无果.不过收到一个文章启发,apt list到一个包ubuntu-desktop感觉是找到了关键,遂apt insta...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/mr_oldcold" target="_blank" title="mr_oldcold">
+<img alt="mr_oldcold" class="avatar-pic" src="https://avatar.csdn.net/6/4/B/3_mr_oldcold.jpg">
+<span class="name">mr_oldcold</span>
+</img></a>
+</p>
+<p>
+<span class="date">2018-03-30 05:45:04</span>
+</p>
+<p>
+<span class="read-num">阅读数：1048</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/u011647007/article/details/78764462" strategy="BlogCommendFromBaidu_1" target="_blank">
+<em>阿里云服务器</em><em>ECS</em> <em>Ubuntu16.04-64-bit</em><em>学习</em><em>之一</em>：<em>配置</em><em>桌面</em> </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/u011647007/article/details/78764462" target="_blank">
+        最近想琢磨下服务器，于是在阿里云上申请了一个<em>Ubuntu16.04-64-bit</em>的服务器练练手，第一次弄还是挺麻烦的。想在公网上搭建web服务器，由于直接server不好看出效果，于是小生先安装个<em>桌面</em>...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/u011647007" target="_blank" title="u011647007">
+<img alt="u011647007" class="avatar-pic" src="https://avatar.csdn.net/F/5/8/3_u011647007.jpg">
+<span class="name">u011647007</span>
+</img></a>
+</p>
+<p>
+<span class="date">2017-12-10 13:41:15</span>
+</p>
+<p>
+<span class="read-num">阅读数：350</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box recommend-ad-box" id="ad1"></div>
+<script>
+          var width = $("div.recommend-box").outerWidth() - 48;
+          NEWS_FEED({
+            w: width,
+            h : 90,
+            showid : 'GNKXx7',
+            placeholderId: "ad1",
+            inject : 'define',
+            define : {
+              imagePosition : 'right',
+              imageBorderRadius : 0,
+              imageWidth: 120,
+              imageHeight: 90,
+              imageFill : 'clip',
+              displayImage : true,
+              displayTitle : true,
+              titleFontSize: 20,
+              titleFontColor: '#333',
+              titleFontFamily : 'Microsoft Yahei',
+              titleFontWeight: 'bold',
+              titlePaddingTop : 0,
+              titlePaddingRight : 0,
+              titlePaddingBottom : 10,
+              titlePaddingLeft : 0,
+              displayDesc : true,
+              descFontSize: 14,
+              descFontColor: '#6b6b6b',
+              descFontFamily : 'Microsoft Yahei',
+              paddingTop : 0,
+              paddingRight : 0,
+              paddingBottom : 0,
+              paddingLeft : 0,
+              backgroundColor: '#fff',
+              hoverColor: '#ca0c16'
+            }
+          })
+        </script>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/heavenhors/article/details/69055536" strategy="BlogCommendFromBaidu_2" target="_blank">
+        阿里云ubuntu16.04 server <em>配置</em>方案   1 <em>配置</em><em>桌面</em>环境      </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/heavenhors/article/details/69055536" target="_blank">
+        首先为服务器<em>配置</em>一个<em>桌面</em>系统升级一下哦！sudo apt-get update
+sudo apt-get upgrade1、安装经典<em>桌面</em>环境 Gnome <em>桌面</em>sudo apt-get install ...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/heavenhors" target="_blank" title="heavenhors">
+<img alt="heavenhors" class="avatar-pic" src="https://avatar.csdn.net/D/9/9/3_heavenhors.jpg">
+<span class="name">heavenhors</span>
+</img></a>
+</p>
+<p>
+<span class="date">2017-04-04 09:53:23</span>
+</p>
+<p>
+<span class="read-num">阅读数：9310</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box recommend-download-box csdn-tracking-statistics clearfix" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<div class="content float-left">
+<h4 class="text-truncate">
+<a href="https://download.csdn.net/download/qq_37608398/10421880" strategy="BlogCommendFromBaidu_3" target="_blank">
+<em>阿里云服务器</em><em>ECS</em> <em>Ubuntu16.04-64-bit</em><em>学习</em><em>之一</em>：<em>配置</em><em>桌面</em>(<em>进阶</em>-<em>脚本</em><em>一键</em><em>执行</em>)-相关文件          </a>
+</h4>
+<p>
+<span class="data">2018年05月18日 </span>
+<span class="size">533B</span>
+<span class="type">下载</span>
+</p>
+</div>
+<div class="img-box float-right">
+<a href="https://download.csdn.net/download/qq_37608398/10421880" strategy="BlogCommendFromBaidu_3" target="_blank">
+<img alt="" src="http://csdnimg.cn/release/download/old_static/images/minetype/rar.svg">
+</img></a>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/qq_37608398/article/details/78155568" strategy="searchFromBaidu_4" target="_blank">
+<em>阿里云服务器</em><em>ECS</em> <em>Ubuntu16.04-64-bit</em><em>学习</em><em>之一</em>：<em>配置</em><em>桌面</em> </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/qq_37608398/article/details/78155568" target="_blank">
+        最近想琢磨下服务器，于是在阿里云上申请了一个<em>Ubuntu16.04-64-bit</em>的服务器练练手，第一次弄还是挺麻烦的。想在公网上搭建web服务器，由于直接server不好看出效果，于是小生先安装个<em>桌面</em>...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/qq_37608398" target="_blank" title="qq_37608398">
+<img alt="qq_37608398" class="avatar-pic" src="https://avatar.csdn.net/2/F/B/3_qq_37608398.jpg">
+<span class="name">qq_37608398</span>
+</img></a>
+</p>
+<p>
+<span class="date">2017-10-03 17:50:49</span>
+</p>
+<p>
+<span class="read-num">阅读数：9684</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/qq_18941425/article/details/79876675" strategy="searchFromBaidu_6" target="_blank">
+        使用ubuntu 16.04 登录远程服务器<em>桌面</em> </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/qq_18941425/article/details/79876675" target="_blank">
+        只需两步就可以解决：1、在用户名下输入如下内容：wan@wan1:~$ sudo apt-get install rdesktop遇到选择时，选yes2、在用户名下输入：wan@wan1:~$ rde...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/qq_18941425" target="_blank" title="qq_18941425">
+<img alt="qq_18941425" class="avatar-pic" src="https://avatar.csdn.net/8/8/F/3_qq_18941425.jpg">
+<span class="name">qq_18941425</span>
+</img></a>
+</p>
+<p>
+<span class="date">2018-04-10 10:03:43</span>
+</p>
+<p>
+<span class="read-num">阅读数：134</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box recommend-ad-box" id="a_d_feed_0"></div>
+<script>
+        var width = $("div.recommend-box").outerWidth() - 48;
+        NEWS_FEED({
+          w: width,
+          h: 90,
+          showid: 'Afihld',
+          placeholderId: 'a_d_feed_0',
+          inject: 'define',
+          define: {
+            imagePosition: 'right',
+            imageBorderRadius: 0,
+            imageWidth: 120,
+            imageHeight: 90,
+            imageFill: 'clip',
+            displayImage: true,
+            displayTitle: true,
+            titleFontSize: 20,
+            titleFontColor: '#333',
+            titleFontFamily: 'Microsoft Yahei',
+            titleFontWeight: 'bold',
+            titlePaddingTop: 0,
+            titlePaddingRight: 0,
+            titlePaddingBottom: 10,
+            titlePaddingLeft: 0,
+            displayDesc: true,
+            descFontSize: 14,
+            descFontColor: '#6b6b6b',
+            descFontFamily: 'Microsoft Yahei',
+            paddingTop: 0,
+            paddingRight: 0,
+            paddingBottom: 0,
+            paddingLeft: 0,
+            backgroundColor: '#fff',
+            hoverColor: '#ca0c16'
+          }
+        })
+      </script>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/qq_35119422/article/details/79794092" strategy="searchFromBaidu_7" target="_blank">
+        阿里云Ubuntu 16.04安装图形界面及远程控制      </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/qq_35119422/article/details/79794092" target="_blank">
+        1.首先要连接上你的服务器，然后安装vncserver，这个是用来远程连接用的。命令如下 apt-get install vnc4server2.安装图形界面 apt-get install xfce...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/qq_35119422" target="_blank" title="qq_35119422">
+<img alt="qq_35119422" class="avatar-pic" src="https://avatar.csdn.net/6/B/4/3_qq_35119422.jpg">
+<span class="name">qq_35119422</span>
+</img></a>
+</p>
+<p>
+<span class="date">2018-04-02 20:00:39</span>
+</p>
+<p>
+<span class="read-num">阅读数：394</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/heavenhors/article/details/69061069" strategy="searchFromBaidu_8" target="_blank">
+        阿里云ubuntu 16.04 Server<em>配置</em>方案   2 远程控制<em>桌面</em> </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/heavenhors/article/details/69061069" target="_blank">
+        通过远程控制，更好的管理服务器1 XRDP远程控制
+  为了更好的远程管理，linux一般情况都用VNC进行远程连接，如 TightVNC,  X11VNC , ReadVNC等。Xrdp 是开放原始...     </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/heavenhors" target="_blank" title="heavenhors">
+<img alt="heavenhors" class="avatar-pic" src="https://avatar.csdn.net/D/9/9/3_heavenhors.jpg">
+<span class="name">heavenhors</span>
+</img></a>
+</p>
+<p>
+<span class="date">2017-04-04 12:44:44</span>
+</p>
+<p>
+<span class="read-num">阅读数：1056</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/qinfuan2017/article/details/79109480" strategy="BlogCommendFromQuerySearch_10" target="_blank">
+        阿里云<em>ecs</em>建站 <em>一键</em>环境<em>配置</em>  图文超详细_liunx下建站,适合纯新手小白      </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/qinfuan2017/article/details/79109480" target="_blank">
+        终于将网站搭建完了，折腾了很久没有找到像我们这种小白的教程，那就写一篇吧！
+
+原文链接：http://www.qinfuan.cn/?p=50
+
+今年突然想到建一个自己的网站，看了很多教程，之前一点儿...      </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/qinfuan2017" target="_blank" title="qinfuan2017">
+<img alt="qinfuan2017" class="avatar-pic" src="https://avatar.csdn.net/6/1/1/3_qinfuan2017.jpg">
+<span class="name">qinfuan2017</span>
+</img></a>
+</p>
+<p>
+<span class="date">2018-01-19 18:00:00</span>
+</p>
+<p>
+<span class="read-num">阅读数：1207</span>
+</p>
+</div>
+</div>
+<div class="recommend-item-box csdn-tracking-statistics" data-dsm="post" data-feed-show="false" data-mod="popu_387" data-poputype="feed">
+<h4 class="text-truncate">
+<a href="https://blog.csdn.net/yuanhong55/article/details/74942036" strategy="BlogCommendFromQuerySearch_11" target="_blank">
+        阿里云<em>ECS</em> CentOS 7 安装图形化<em>桌面</em> </a>
+</h4>
+<p class="content">
+<a href="https://blog.csdn.net/yuanhong55/article/details/74942036" target="_blank">
+        妈的，我贪图方便，在阿里云的镜像市场选择了别人整合好的镜像，安装图形界面时总是报错最后选择了阿里原装的Centos7.3来安装，可以了CentOS 7 系统下，本文以 MATE <em>桌面</em>环境安装进行安装配...      </a>
+</p>
+<div class="info-box d-flex align-content-center">
+<p>
+<a class="avatar" src="https://blog.csdn.net/yuanhong55" target="_blank" title="yuanhong55">
+<img alt="yuanhong55" class="avatar-pic" src="https://avatar.csdn.net/1/3/4/3_yuanhong55.jpg">
+<span class="name">yuanhong55</span>
+</img></a>
+</p>
+<p>
+<span class="date">2017-07-11 10:57:05</span>
+</p>
+<p>
+<span class="read-num">阅读数：11071</span>
+</p>
+</div>
+</div>
+<div class="recommend-loading-box">
+<img src="https://csdnimg.cn/release/phoenix/images/feedLoading.gif">
+</img></div>
+<div class="recommend-end-box">
+<p class="text-center">没有更多推荐了，<a class="c-blue c-blue-hover c-blue-focus" href="https://blog.csdn.net/">返回首页</a></p>
+</div>
+</div>
+</main>
+<aside>
+<div class="aside-box" id="asideProfile">
+<h3 class="aside-title">个人资料</h3>
+<div class="profile-intro d-flex">
+<div class="avatar-box d-flex justify-content-center flex-column">
+<a href="https://blog.csdn.net/qq_37608398">
+<img class="avatar_pic" src="https://avatar.csdn.net/2/F/B/3_qq_37608398.jpg">
+</img></a>
+</div>
+<div class="user-info d-flex justify-content-center flex-column">
+<p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+<a class="text-truncate" href="https://blog.csdn.net/qq_37608398" id="uid" target="_blank">qq_37608398</a>
+</p>
+</div>
+</div>
+<div class="data-info d-flex item-tiling">
+<dl class="text-center" title="43">
+<dt><a href="https://blog.csdn.net/qq_37608398?t=1">原创</a></dt>
+<dd><a href="https://blog.csdn.net/qq_37608398?t=1"><span class="count">43</span></a></dd>
+</dl>
+<dl class="text-center" title="18">
+<dt>粉丝</dt>
+<dd><span class="count" id="fan">18</span></dd>
+</dl>
+<dl class="text-center" title="134">
+<dt>喜欢</dt>
+<dd><span class="count">134</span></dd>
+</dl>
+<dl class="text-center" title="75">
+<dt>评论</dt>
+<dd><span class="count">75</span></dd>
+</dl>
+</div>
+<div class="grade-box clearfix">
+<dl>
+<dt>等级：</dt>
+<dd>
+<a href="https://blog.csdn.net/home/help.html#level" target="_blank" title="4级,点击查看等级说明">
+<svg aria-hidden="true" class="icon icon-level">
+<use xlink:href="#csdnc-bloglevel-4"></use>
+</svg>
+</a>
+</dd>
+</dl>
+<dl>
+<dt>访问：</dt>
+<dd title="32044">
+                3万+            </dd>
+</dl>
+<dl>
+<dt>积分：</dt>
+<dd title="1008">
+                1008            </dd>
+</dl>
+<dl title="67641">
+<dt>排名：</dt>
+<dd>6万+</dd>
+</dl>
+</div>
+<div class="badge-box d-flex">
+<span>勋章：</span>
+<a class="icon-badge" title="持之以恒">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-m-lasting"></use>
+</svg>
+<div class="icon-arrow"></div>
+<div class="grade-detail-box item2">
+<div class="pos-box">
+<div class="left-box d-flex justify-content-center align-items-center flex-column">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-m-lasting"></use>
+</svg>
+<p>持之以恒</p>
+</div>
+<div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+</div>
+</div>
+</a>
+</div>
+</div> <div class="csdn-tracking-statistics mb8 box-shadow" data-mod="popu_4" data-pid="blog" style="height:250px;">
+<div class="aside-content text-center" id="cpro_u2734133">
+<!-- 投放代码 -->
+<script src="//cee1.iteye.com/lgyyovfyh.js" type="text/javascript"></script>
+</div>
+</div>
+<div class="aside-box" id="asideNewArticle">
+<h3 class="aside-title">最新文章</h3>
+<div class="aside-content">
+<ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+<li class="clearfix">
+<a href="https://blog.csdn.net/qq_37608398/article/details/80574931" target="_blank">解决ubuntu显示中文乱码</a>
+</li>
+<li class="clearfix">
+<a href="https://blog.csdn.net/qq_37608398/article/details/80574782" target="_blank">51job简历如何导出pdf格式</a>
+</li>
+<li class="clearfix">
+<a href="https://blog.csdn.net/qq_37608398/article/details/80560856" target="_blank">C语言交换两个数的值</a>
+</li>
+<li class="clearfix">
+<a href="https://blog.csdn.net/qq_37608398/article/details/80558558" target="_blank">Ubuntu-server16.04更新软件并安装</a>
+</li>
+<li class="clearfix">
+<a href="https://blog.csdn.net/qq_37608398/article/details/80542240" target="_blank">50国内外优秀的C/C++源代码网站</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="aside-box flexible-box" id="asideCategory">
+<h3 class="aside-title">个人分类</h3>
+<div class="aside-content">
+<ul>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/6909937">
+                    语言-解决问题                    <span class="count float-right">12篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/6912043">
+                    Study--ing                    <span class="count float-right">32篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/6917807">
+                    编辑器                    <span class="count float-right">2篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/6966321">
+                    装系统                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/6966330">
+                    software                    <span class="count float-right">4篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/7207172">
+                    阿里云服务器                    <span class="count float-right">4篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/7514357">
+                    人生计划                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/7627097">
+                    python                    <span class="count float-right">10篇</span>
+</a>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/category/7707118">
+                    C语言                    <span class="count float-right">3篇</span>
+</a>
+</li>
+</ul>
+</div>
+<p class="text-center">
+<a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+</p>
+</div>
+<div class="aside-box flexible-box" id="asideArchive">
+<h3 class="aside-title">归档</h3>
+<div class="aside-content">
+<ul class="archive-list">
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">7篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">16篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2018/03">
+                    2018年3月                    <span class="count float-right">2篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/12">
+                    2017年12月                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/11">
+                    2017年11月                    <span class="count float-right">4篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/10">
+                    2017年10月                    <span class="count float-right">3篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/08">
+                    2017年8月                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/07">
+                    2017年7月                    <span class="count float-right">1篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/06">
+                    2017年6月                    <span class="count float-right">5篇</span>
+</a>
+</li>
+<!--归档统计-->
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/month/2017/05">
+                    2017年5月                    <span class="count float-right">6篇</span>
+</a>
+</li>
+</ul>
+</div>
+<p class="text-center">
+<a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+</p>
+</div>
+<div class="aside-box" id="asideHotArticle">
+<h3 class="aside-title">热门文章</h3>
+<div class="aside-content">
+<ul class="hotArticle-list csdn-tracking-statistics tracking-click" data-mod="popu_521">
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/details/78155568">阿里云服务器ECS Ubuntu16.04-64-bit学习之一：配置桌面</a>
+<p class="read">阅读量：<span>9135</span></p>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/details/78163086">阿里云服务器ECS Ubuntu16.04-64-bit学习之二：搭建apache2外网能访问的web网站</a>
+<p class="read">阅读量：<span>1038</span></p>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/details/71599291">Vim实用技巧记录(一直更新）</a>
+<p class="read">阅读量：<span>846</span></p>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/details/80445863">Office 2016激活180天（可反复使用此方法）</a>
+<p class="read">阅读量：<span>680</span></p>
+</li>
+<li>
+<a href="https://blog.csdn.net/qq_37608398/article/details/80275988">Python通过发邮件通知自己电脑被入侵</a>
+<p class="read">阅读量：<span>616</span></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="aside-box" id="asideNewComments">
+<h3 class="aside-title">最新评论</h3>
+<div class="aside-content">
+<ul class="newcomment-list">
+<li>
+<a class="title text-truncate" href="https://blog.csdn.net/qq_37608398/article/details/80560856#comments" target="_blank">C语言交换两个数的值</a>
+<p class="comment">
+<a class="user-name" href="https://my.csdn.net/weixin_42090936" target="_blank">weixin_42090936</a>：哦                </p>
+</li>
+<li>
+<a class="title text-truncate" href="https://blog.csdn.net/qq_37608398/article/details/80574782#comments" target="_blank">51job简历如何导出pdf格式</a>
+<p class="comment">
+<a class="user-name" href="https://my.csdn.net/weixin_42090936" target="_blank">weixin_42090936</a>：还有这种操作？？？                </p>
+</li>
+<li>
+<a class="title text-truncate" href="https://blog.csdn.net/qq_37608398/article/details/80574931#comments" target="_blank">解决ubuntu显示中文乱码</a>
+<p class="comment">
+<a class="user-name" href="https://my.csdn.net/weixin_42090936" target="_blank">weixin_42090936</a>：涨姿势了                </p>
+</li>
+<li>
+<a class="title text-truncate" href="https://blog.csdn.net/qq_37608398/article/details/80220437#comments" target="_blank">Python3爬虫之五：爬取网站数...</a>
+<p class="comment">
+<a class="user-name" href="https://my.csdn.net/qq_37608398" target="_blank">qq_37608398</a>：[reply]weixin_42318631[/reply]
+用来查找字数的字段                </p>
+</li>
+<li>
+<a class="title text-truncate" href="https://blog.csdn.net/qq_37608398/article/details/80220437#comments" target="_blank">Python3爬虫之五：爬取网站数...</a>
+<p class="comment">
+<a class="user-name" href="https://my.csdn.net/weixin_42318631" target="_blank">weixin_42318631</a>：请问，这个代码的第27行至第32行是什么意思？为什么都叫txtSize                </p>
+</li>
+</ul>
+</div>
+</div>
+<div id="asideFooter">
+<div class="aside-box">
+<script src="//cee1.iteye.com/avneunkwb.js" type="text/javascript"></script>
+</div>
+<div class="aside-box">
+<div class="persion_article">
+</div>
+</div>
+</div>
+</aside>
+<script data-isfootertrack="false" src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js?20180309" type="text/javascript"></script>
+<script>
+  $("a.flexible-btn").click(function(){
+    $(this).parents('div.aside-box').removeClass('flexible-box');
+    $(this).remove();
+  })
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+<ul class="meau-list">
+<li>
+<button class="btn-like liked" title="点赞">
+<svg aria-hidden="true" class="icon active">
+<use xlink:href="#csdnc-thumbsup-ok"></use>
+</svg><svg aria-hidden="true" class="icon no-active">
+<use xlink:href="#csdnc-thumbsup"></use>
+</svg>
+<p>3</p>
+</button>
+</li>
+<li class="toc-container-box" id="liTocBox">
+<button class="btn-toc" title="目录">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-contents"></use>
+</svg><br>目录
+      </br></button>
+<div class="toc-container">
+<div class="pos-box">
+<div class="icon-arrow"></div>
+<div class="scroll-box">
+<div class="toc-box"></div>
+</div>
+</div>
+<div class="opt-box">
+<button class="btn-opt prev nomore" title="向上">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-chevronup"></use>
+</svg>
+</button>
+<button class="btn-opt next">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-chevrondown"></use>
+</svg>
+</button>
+</div>
+</div>
+</li>
+<li>
+<button class="btn-bookmark" title="收藏">
+<svg aria-hidden="true" class="icon active">
+<use xlink:href="#csdnc-bookmark-ok"></use>
+</svg><svg aria-hidden="true" class="icon no-active">
+<use xlink:href="#csdnc-bookmark"></use>
+</svg><br>收藏
+      </br></button>
+</li>
+<li>
+<a class="btn-comments" href="#commentBox" title="评论">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-comments"></use>
+</svg><br>评论
+      </br></a>
+</li>
+<li class="bdsharebuttonbox">
+<a class="btn-comments bds_weixin" data-cmd="weixin" title="微信分享">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-wechat"></use>
+</svg><br>微信
+      </br></a>
+</li>
+<li class="bdsharebuttonbox">
+<a class="btn-comments bds_tsina" data-cmd="tsina" title="微博分享">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-weibo"></use>
+</svg><br>微博
+      </br></a>
+</li>
+<li class="bdsharebuttonbox">
+<a class="btn-comments bds_qzone" data-cmd="qzone" title="QQ分享">
+<svg aria-hidden="true" class="icon">
+<use xlink:href="#csdnc-qq"></use>
+</svg><br>QQ
+      </br></a>
+</li>
+</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "阿里云服务器ECS Ubuntu16.04-64-bit学习之一：配置桌面(进阶-脚本一键执行)";
+    var ChannelId = 37;
+    var articleId = "80358874";
+    var commentscount = 4;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/qq_37608398/article/details/80358874";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ecs+ubuntu16+%E6%A1%8C%E9%9D%A2";
+    var needInsertBaidu = false;
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src="https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422"></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"阿里云服务器ECS Ubuntu16.04-64-bit学习之一：配置桌面(进阶-脚本一键执行)");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-bd54b21308.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-444d167241.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin3-template/skin3-template-46c7bd3d86.min.js"></script>
+<script src="https://csdnimg.cn/search/baidu_search-1.1.2.js?v=201802071056&amp;autorun=true&amp;install=true&amp;keyword=%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8ecs+ubuntu16+%E6%A1%8C%E9%9D%A2" type="text/javascript"></script>
+</link></link></link></body>
+<div class="box-box-default">
+<a class="btn-remove">
+        关闭
+    </a>
+<script src="//cee1.iteye.com/mhzzjepzz.js" type="text/javascript"></script>
+</div>
+<div class="box-box-large">
+<a class="btn-remove">
+        关闭
+    </a>
+<script src="//cee1.iteye.com/idvveasfs.js" type="text/javascript"></script>
+</div>
+</html>
+https://blog.csdn.net/qq_37608398/article/details/80358874

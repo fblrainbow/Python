@@ -29,5 +29,5 @@ t = 12
 print(t or {})
 local x = 1
 local log = "信息" .. x
-local y = []
+-- local y = []
 

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>金十数据中心</title>
+    <meta name="description" content="金十数据中心" />
+    <meta name="keywords" content="金十数据中心" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="csrf-token" content="" />
+    <meta name="csrf-token" content="DlEmO4tDjIAZSgKhWp2y1NRMi6li2HeNvyT0b0RZ"/>
+    <meta name="renderer" content="webkit">    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>    <link href="//cdn.jin10.com/assets/img/commons/favicon.ico" type="image/x-icon" rel="icon">
+
+    <!--引用主站模板的css-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jin10.com/assets/css/ucenterUI.css">
+    <!--引用主站模板的css-->
+
+
+
+    
+
+        <link rel="stylesheet" type="text/css" href='//cdn2.jin10.com/dc/css/utils/index.css?v=20180803153412'>
+    <link rel="stylesheet" type="text/css" href='//cdn2.jin10.com/dc/css/chart/index.css?v=20180803153412'>
+    <link rel="stylesheet" type="text/css" href='//cdn2.jin10.com/dc/css/datepicker.css?v=20180803153412' />
+        <link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/dc/v2/font/iconfont.css?v=20180803153412" />
+    <link rel="stylesheet" type="text/css" href='//cdn2.jin10.com/dc/css/indexStyle.css?v=20180803153412' />
+    <link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/dc/v2/css/common.css?v=20180803153412" />
+    <link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/dc/css/sidetool.css?v=20180803153412" />
+
+
+        <!--[if lt IE 9]>
+    <script src='//cdn2.jin10.com/dc/vendor/utils/html5shiv.min.js'></script>
+    <script src='//cdn2.jin10.com/dc/vendor/utils/selectivizr-min.js'></script>
+    <![endif]-->
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/vendor/utils/jquery-1.11.1.min.js'></script>
+        <script type="text/javascript" src='//cdn2.jin10.com/dc/js/refrence/common/reportConfig.js?v=20180803153412'></script>
+   
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/utils/index.js?v=20180803153412'></script>
+    <!--数据中心-->
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/vendor/echart/echarts.min.full.js?v=20160420_1530'></script>
+     <!--script type="text/javascript" src='//cdn2.jin10.com/dc/js/igssi/index.js?v=20180803153412'></script -->
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/introfront.js?v=20180803153412'></script>
+
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/sidetool.js?v=20180803153412'></script>
+
+
+        
+        
+        
+</head>
+<body class="side-nav_is-collapsed side-nav_is-default l-hasSubnav jin-video dc-sidebar-collapsed shouqi" >
+<img class="dcshareimg" src="https://cdn2.jin10.com/dc/img/dcshare.jpg"/>
+
+
+
+    <div class="l-wrap"  >
+
+    <div class="l-main">
+        <div id="J_main_wrap" class="l-main_wrap">
+            <div class="l-main_body">
+                                    <div class="dc-header">
+    <div class="dc-header-box">
+    <div class="dc-header-in clear">
+        <a class="dc-sitemap">
+            <div class="dc-sidebar_logo"></div>
+            <i class="icon iconfont icon-liebiao"></i>
+            <i class="icon iconfont icon-ic_unfold"></i>
+        </a>
+        <div class="nav_banner-btn"> <i class="icon iconfont icon-comiiscaidan"></i> </div>
+
+        <div class="dc-loginbox">
+            <a href="javascript:;" id="J_login" class=" J_ucenter_login">
+                <i class="jin-icon jin-icon_user " ></i>
+                <span id="J_ucenter_username">登录 | 注册</span>
+            </a>
+
+            <div id="user-box"  class="user-box">
+                <img id="J_avatar" src="https://cdn.jin10.com/avatar/96/96d114c7588d59129da84961a5b18cba/avatar.jpg" alt="用户头像">
+                <a id="J_userNick" title="">金十网友</a>
+                <div class="user-menulist">
+                    <ul>
+                        <li class="user-exit"><a class="J_ucenter_logout" href="javascript:;">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div id="J_search" class="dc-search_box">
+            <div class="dc-search_input">
+                <input id="searchInput" type="text" class="dc-input"  name="searchReport" placeholder="搜索报告">
+
+            </div>
+            <div class="dc-search_btn">
+                <a href="javascript:;" class="dc-btn"><i class="icon iconfont icon-sousuo"></i></a>
+            </div>
+
+        </div>
+        <div class="dc-nav_banner">
+
+            <ul>
+                <li>
+                    <a href="/" title="首页">首页</a>
+                </li>
+                <li>
+                    <a href="/market" title="市场异动">市场异动</a>
+                </li>
+                <li>
+                    <a href="/price" title="价格图表">价格图表</a>
+                </li>
+                <li>
+                    <a href="/economic" title="经济指标">经济指标</a>
+                </li>
+                <li>
+                    <a href="/org" title="机构数据">机构数据</a>
+                </li>
+                <li>
+                    <a href="/favoritesChannel" title="自选"><span class="dc-nav_banner_span">自选<span class="icon iconfont icon-new"></span></span></a>
+                </li>
+                                                                 </ul>
+
+
+        </div>
+        <div class="search-list">
+            <div class="search-listclose"><i class="icon iconfont icon-guanbi"></i></div>
+            <div class="search-listcon">
+
+                <ul id="searchResult"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+                                    <div class="dc-main">
+        <div class="dc-nav-box clear">
+    <div class="dc-nav-in clear">
+        <div class="dc-nav clear">
+            <div class="dc-nav-topti clear">
+                <div class="dc-nav-toptibor clear">
+                    <div class="currentDate-box clear">
+                        <div class="icon iconfont icon-rili"></div>
+                        <div class="table-reportTi">日期：</div>
+                        <input type="text" id="table-currentDate" class="sp-currentDate table-currentDate" data-value='' value="" >
+                    </div>
+                    <h3 class="dc-reportName"><span id="dc-reportNamein" class="dc-reportNamein" data-reportTitle="美国国内生产总值(GDP)报告">美国国内生产总值(GDP)报告<i data-reportTitle="美国国内生产总值(GDP)报告" id="txtIntroduce" class="icon iconfont icon-qitashuoming "></i></span></h3>
+                    <div class="dc-tool">
+                        <a href="javascript:;" title="更新数据"><i id="J-frash" class="icon iconfont icon-shuaxin "></i></a>
+                        <a href="javascript:;" title="对比日期"><i id="J-compare" class="icon iconfont icon-duibi "></i></a>
+                        <a href="javascript:;" title="基础模式"><i id="J-extable" class="icon iconfont icon-zhonglei1  exbtn  active"></i></a>
+                        <a href="javascript:;" title="图表模式"><i id="J-exchart" class="icon iconfont icon-zhexiantu  exbtn"></i></a>
+                        <a href="javascript:;" title="筛选类型"><i id="J-dropdown" class="icon iconfont icon-shaixuan "></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div  class="chartToolbar-box" ><div  id='chartToolbar' ></div></div>
+        </div>
+        <div class="nav-basicChart-title hide" ><table id="J-basicChart-title" class="dc_table_ti"></table></div>
+    </div>
+
+
+</div>        <div id="table-box" class="chartbox">
+
+            <div id="J-basicChart" class="dc-basicChart"></div>
+        </div>
+        <div id='chart' class="j-chart-wrap hide chartbox"></div>
+
+    </div>
+
+
+            </div>
+
+            
+        </div>
+    </div>
+
+    
+
+</div>
+    <div class="pop-fixbg"> </div>
+    <div class="pop-fixbgblack"></div>
+    <link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/dc/v2/css/guide.css">
+
+<div id="tool-overviewBox" class="slidebuttonbox">
+    <div id="overviewfixbox"  class="overviewfixbox fixbox">
+        <div class="overview-box"></div>
+        <div  class="fix-icon "><div data-new="entrance" class="newonline tool-new"></div><i class=" icon iconfont icon-fenlei"></i> </div>
+
+     </div>
+
+    <div id="backtotop"  class="fixbox">
+        <div  class="fix-icon "><i class=" icon iconfont icon-huidaodingbu"></i> </div>
+            </div>
+
+<div  id="tool-displayBox" class="" >
+
+    <div   class="tool-displayBoxin" >
+        <div class="tool-displayTi">
+            <div class="tool-close"><i class="icon iconfont icon-guanbi"></i></div>
+        </div>
+
+            <a title="报告说明" href="javascript:;">
+            <div  id="introduceBox"  class="fixbox"  data-reportTitle="美国国内生产总值(GDP)报告">
+               <div  class="fix-icon "><i class=" icon iconfont icon-qitashuoming"></i> </div> <div class="fixbox_intro">报告说明</div>
+            </div>
+        </a>
+   
+       
+               <div id="guideBox" class="fixbox" >
+                   <div id="guideBtn">
+                       <div  class="fix-icon "><i class=" icon iconfont icon-xinshouzhiyin-"></i> </div>
+                       <div class="fixbox_intro">新手指引</div>
+                   </div>
+                   <div class="guide-listbox">
+                       <ul class="guide-list">
+                           <li  id="dcGuide"> <a title="数据中心视频介绍" href="javascript:;">数据中心视频介绍</a><span class="newflag icon iconfont icon-new"></span></li>
+                           <li  id="videoGuide"> <a title="复合报告视频介绍" href="javascript:;">复合报告视频介绍</a><span class="newflag icon iconfont icon-new"></span></li>
+                           <li  id="pictureGuide"> <a title="数据中心图文引导" href="javascript:;">数据中心图文介绍</a></li>
+                       </ul>
+                   </div>
+
+               </div>
+
+       
+                                                    
+                                          
+                                         
+                   
+                                          
+                                 
+        <div  id="touhangBox" class="fixbox" >
+            <a target="_blank" href="/banks_orders">
+                <div  class="fix-icon ">
+                    <i class=" icon iconfont icon-dingdan"></i>
+                </div>
+                <div class="fixbox_intro">投行订单</div>
+            </a>
+       </div>
+
+
+           <div id="price_wallBtn" class="fixbox">
+
+               <a target="_blank" href="/price_wall?v=20180803153412">
+
+               <div  class="fix-icon "><i class=" icon iconfont icon-hangqingtu"></i> </div><div class="fixbox_intro">行情报价</div>
+               </a>
+           </div>
+
+        <div id="complex_report" class="fixbox">
+
+            <a target="_blank" href="/reportType/dc_complex_report?complexType=1?v=20180803153412">
+
+                <div  class="fix-icon "><i class=" icon iconfont icon-zhexiantu2"></i> </div><div class="fixbox_intro">复合报告</div>
+            </a>
+        </div>
+
+        <div id="complex_report" class="fixbox">
+
+            <a target="_blank" href="/futures">
+
+                <div  class="fix-icon "><span class="newflag icon iconfont icon-new"></span><i class=" icon iconfont icon-qihuo"></i> </div><div class="fixbox_intro">期货日历</div>
+            </a>
+        </div>
+        <div id="complex_report" class="fixbox">
+
+            <a target="_blank" href="/story">
+
+                <div  class="fix-icon "><span class="newflag icon iconfont icon-new"></span><i class=" icon iconfont icon-shouyeshu"></i> </div><div class="fixbox_intro">数说</div>
+            </a>
+        </div>
+
+       <div id="historyBtn" class="fixbox">
+
+           <div  class="fix-icon "><i class=" icon iconfont icon-zujitabber-lan"></i> </div><div class="fixbox_intro">浏览历史</div>
+       </div>
+    
+            
+    <div  class="fixbox" id="jinFeedback" onclick="onjinFeedback()">
+
+        <a title="意见反馈" href="javascript:;" id="wenjuan-box"><div class="fix-icon"> 
+          <i class=" icon iconfont icon-fankui1"></i></div></a><div class="fixbox_intro">意见反馈</div>
+
+    </div>
+
+    </div>
+</div>
+</div>
+
+<div id="wenjuan-poptips">
+    <div id="wenjuan-poptips-fixbg"  class="fixbg"></div>
+    <div id="wenjuan-errorPop" class="pop-box">
+        <div id="wenjuan-poptipsClose" class="wenjuan-close  icon iconfont icon-guanbi"></div>
+        <div id="wenjuan-poptipsTi" class="pop-ti">提示</div>
+        <div id="wenjuan-poptipsTxt" class="pop-txt"></div>
+    </div>
+</div>
+
+<div class="rightside-wrap history-wrap">
+    <div id="historyClose" class="rightside-close"><i class="icon iconfont icon-guanbi"></i></div>
+   <div class="rightside-wrap-in  history-wrap-in">
+       <ul>
+           <li>历史记录</li>
+           <li><a target="_blank" href="reportType/dc_ssi_trends">投机情绪报告</a></li>
+           <li><a target="_blank" href="reportType/dc_etf_gold">全球最大黄金ETF—SPDR Gold Trust持仓报告</a></li>
+           <li><a target="_blank" href="reportType/dc_cme_report">芝加哥商业交易所（CME）金属类商品成交量报告</a></li>
+
+       </ul>
+   </div>
+</div>
+
+<div id="J-wenjuanbox" >
+        <div  class="wenjuan-inputbox">
+        <div class="wenjuan-input">
+            <div id="wenjuanClose" class="dc-pop-close  icon iconfont icon-guanbi"></div>
+            <form id="wenjuanForm">
+                <input type="hidden" name="_token" id="_token" value="DlEmO4tDjIAZSgKhWp2y1NRMi6li2HeNvyT0b0RZ">
+                <div class="wenjuan-head">我们需要您的宝贵意见( ^_^ )</div>
+                <ul class="wenjuan-ul">
+                    <li><div class="wenjuan-ti"><span class="red">*</span>联系方式：</div><div class="wenjuan-con"><input id="contactContent" maxlength="200" class="suggestTxt" name="suggestInfo" type="text" value="" placeholder="请填写真实信息，以便及时反馈"/></div>
+                        <div class="wenjuan-li-space">请填qq或者手机号，以便及时反馈</div>
+                    </li>
+                    <li>
+                        <div class="wenjuan-ti"><span class="red">*</span>建议/意见：</div>
+                        <div class="wenjuan-con  clear"><textarea id="suggestContent" maxlength="200" class="suggestTxt" name="suggestContent"   placeholder="请输入您的建议或者意见" rows="5"></textarea></div>
+                        <div class="qq-link">或联系qq：673679134</a></div>
+                    </li>
+                </ul>
+                <div class="wenjuan-btn"><input id="subWenjuan" type="button" value="提交"/></div>
+            </form>
+            <div style="display: none" id="successCallbak" class="sub-success">提交成功！( ^_^ )</div>
+        </div>
+    </div>
+</div>
+
+<!--报告导读-->
+<div class="dcguide-box">
+
+    <div id="dcguide-ti" class="dcguide-ti">报<br/>告<br/>导<br/>读<i class=" icon iconfont icon-new"></i></div>
+
+    <div id="dcguide-nav" class="dcguide-nav"> </div>
+
+    <div id="dcguide-con" class="dcguide-con">
+        <div id="dcguide-close" class="dcguide-con-close"><i class="icon iconfont icon-guanbi"></i></div>
+        <div class="dcguide-con_con">
+
+            <audio id="audio" style="display: none" src=""  ></audio>
+
+            <div class="guide-type guide-doc">
+                <h3 class="guide-ti"></h3>
+                <div class="guide-con">
+                    <a class="guide-docimg" target="_blank" href="javascript:;">
+                        <img  class="guide-docimage" src="">
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: none" class="guide-type guide-video">
+                <h3 class="guide-ti"></h3>
+                <div class="guide-con">
+                    <video id="video" preload="none" src="" controls />
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="guideVideoPop" class="guideVideo-popbox">
+    <div class="guideVideo-ti">复合报告3.0使用技巧</div>
+    <div id="guideVideoClose" class="dc-pop-close  icon iconfont icon-guanbi"></div>
+    <div class="guideVideo-box">
+        <video id="fuheVideo" preload="none" controls src="" poster="https://cdn2.jin10.com/dc/img/introduce/fuhe_poster.jpg"></video>
+    </div>
+</div>
+
+<div id="dcVideoPop" class="guideVideo-popbox">
+    <div class="guideVideo-ti">数据中心介绍</div>
+    <div id="dcVideoClose" class="dc-pop-close  icon iconfont icon-guanbi"></div>
+    <div class="guideVideo-box">
+        <video id="dcVideo" preload="none" controls src="" poster="https://cdn2.jin10.com/dc/img/introduce/dc_poster.jpg"></video>
+    </div>
+</div>
+
+<script type="text/javascript" src="//cdn.jin10.com/plugins/feedback/index.js"></script>
+<script type="text/javascript">
+     var jin10Feedback;
+   function onjinFeedback(argument) {
+    
+ 
+   
+      
+      if(!jin10Feedback){
+var jin10Feedback = new Jin10Feedback({ popup: true })
+    // 通过某个事件或者其他方式执行show方法显示，对应的，如果有需要隐藏则用hide
+    jin10Feedback.show();
+       return;
+      }
+      jin10Feedback.show();
+   }
+
+</script>
+
+    
+     <!--说明弹框-->
+<div id="J-dc-pop-intro" class="dc-pop hide">
+    <div id="dc_pop_bg-intro" class="dc_pop_bg" ></div>
+    <div class="dc-pop-in">
+        <div id="closePop-intro" class="dc-pop-close icon iconfont icon-guanbi" ></div>
+        <h3 class="pop-contentTi"><span id="pop-contentTi"></span><i data-reportTitle="美国国内生产总值(GDP)报告" id="soundIntroduce" class="icon iconfont icon-shengyin "></i></h3>
+        <div class="content-intro_nav">
+            <div class="intro_nav_item act">报告说明</div>
+            <div class="intro_nav_item">操作示意</div>
+        </div>
+        <div id="J-dc-pop-content-intro" class="dc-pop-con" >
+
+            <div class="pop-contentblock pop-contentblock-content">
+
+            </div>
+            <div  class="pop-contentblock hide">
+                <div class="normal-chart">
+                   <a title="图表模式操作说明" target="_blank"  href="//cdn2.jin10.com/dc/img/intro-chart.jpg"><img alt="图表模式操作说明" src="//cdn2.jin10.com/dc/img/intro-chart.jpg"/></a>
+                </div>
+                <div class="waihui-emotion-chart hide">
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+         <script type="text/javascript" src='//cdn2.jin10.com/dc/js/instruction/index.js?v=20180803153412'></script>
+            </div>
+</div>
+        <!--图表弹框-->
+    <div id="J-dc-pop" class="dc-pop hide">
+        <div id="dc_pop_bg" class="dc_pop_bg" ></div>
+        <div class="dc-pop-in">
+            <div id="closePop" class="dc-pop-close icon iconfont icon-guanbi" ></div>
+            <div id="J-dc-pop-content" class="dc-pop-con" >
+
+            </div>
+        </div>
+    </div>
+
+    <!--添加对比弹框-->
+    <div id="J-dc-compare" class="dc-pop hide">
+        <div class="dc_pop_bg" onclick="closeCompare();"></div>
+        <div class="dc-compare-pop-in">
+            <div class="pop-head"><h2>选择需要对比的日期</h2></div>
+            <div class="dc-pop-close icon iconfont icon-guanbi"  onclick="closeCompare();"></div>
+            <div  class="dc-pop-con">
+                <div  class="dc-pop-comcc exCalender-con clear">
+                    <div id="exCalender"></div>
+                    <div class="dc-com-list"></div>
+                 </div>
+                <div id="J-subCom"  class="btn">开始对比</div>
+             </div>
+         </div>
+     </div>
+
+
+        <img id="J_intro_bg" class="intro_bg" src=""/>
+ 
+               <!--引用主站模板的js-->
+
+    <script src="//cdn.jin10.com/assets/js/plugins/rsa.js"></script>
+    <script src="//cdn.jin10.com/assets/js/ucenterUI/main.js"></script>
+
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/pagecommon.js?v=20180803153412'></script>
+    <div style="display: none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261933372'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1261933372%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script><script src="//s96.cnzz.com/z_stat.php?id=1000171913&web_id=1000171913" language=JavaScript></script></div>
+    <!--引用主站模板的js-->
+    
+   <script>
+       var isTestServer = '0';
+   </script>
+   <script src="//cdn.jin10.com/assets/js/plugins/rsa.js"></script>
+   <script src="//cdn.jin10.com/assets/js/ucenterUI/main.js"></script>
+
+  <script type="text/javascript" src='//cdn2.jin10.com/dc/js/search/index.js?v=20180803153412'></script>
+   <script type="text/javascript" src='//cdn2.jin10.com/dc/v2/js/common.js?v=20180803153412'></script>
+<link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/plugin/common/dist/css/sitemap.css?v=20180803153412">
+<script type="text/javascript" src="//cdn.jin10.com/plugins/sitemap/index.js?v=20180803153412"></script>
+<script type=text/javascript src=//cdn.jin10.com/plugins/statistics/index.js></script><script>/*JinStatistics.init()*/</script>
+<script type="text/javascript">
+    
+    $(function (argument) {
+        
+
+        
+        //if(typeof )
+        /*url是当前网站的地址,title是当前网站的名称*/
+            jinSiteMap.renderToItem($('.dc-sitemap'),{url:'//datacenter.jin10.com',  title:'数据中心'},false);
+        
+    })
+</script>
+
+<script type="text/javascript" src='//cdn2.jin10.com/dc/js/guide/index.js?v=20180803153412'></script>
+<script type="text/javascript" src='//cdn2.jin10.com/dc/js/jquery.datepicker.js?v=20180803153412'></script>
+<script type="text/javascript" src='//cdn2.jin10.com/dc/js/detail.js?v=20180803153412'></script>
+<script type="text/javascript" src='//cdn2.jin10.com/dc/v2/js/detail_guide.js?v=20180803153412'></script>
+
+
+    <script>
+     var nameType='dc_usa_gdp';
+     window.reportTypeUtil="%";
+    </script>
+    <script type="text/javascript" src='//cdn.jin10.com/dc/reports/dc_usa_gdp_latest.js?v=1535709769'></script>
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/report/reportDetail_dc_normal.js?v=20180803153412'></script>
+    <script type="text/javascript" src='//cdn2.jin10.com/dc/js/opts/dc_normal-config.js?v=20180803153412'></script>
+
+
+                        <link rel="stylesheet" type="text/css" href="//cdn2.jin10.com/dc/v2/css/footer.css">
+
+<div class="hero-footer">
+    <div class="hero-wrap hero-wrap-main">
+        <div class="hero-footer__wrap clear">
+            <div class="hero-footer__l hero-footer__link">
+                <dl>
+                    <dd>
+                        <a href="https://www.jin10.com/about/index.html#about" target="_blank">关于我们</a>
+                    </dd>
+                    <dd>
+                        <a href="https://www.jin10.com/about/index.html#contact" target="_blank">联系我们</a>
+                    </dd>
+                    <dd>
+                        <a href="https://www.jin10.com/about/index.html#ad" target="_blank">广告合作</a>
+                    </dd>
+                    <dd>
+                        <a href="http://south.jin10.com/example/websiteiframe.html" target="_blank">金十数据引用</a>
+                    </dd>
+                    <dd>
+                        <a href="/dc_js_config" target="_blank">数据中心引用</a>
+                    </dd>
+                    <dd>
+                        <a href="http://south.jin10.com/job2017/index.html" target="_blank">人才招聘</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript::void(0)"  class="jin_sitemap_item_render">网站地图</a>
+                    </dd>
+                    <dd>
+                        <a href="https://www.jin10.com/about/index.html#privacy" target="_blank">隐私声明</a>
+                    </dd>
+                    <dd>
+                        <a href="http://crm2.qq.com/page/portalpage/wpa.php?uin=800185710&cref=https%3A%2F%2Fid.b.qq.com%2Fcrm%2Findex.php%3Frr%3Dwpa&ref=https%3A%2F%2Fid.b.qq.com%2Fcrm%2Findex.php%3Frr%3Dwpa%2Fstyle%26id%3Dwpa_setting_a01&pt=undefined&f=1&ty=1&ap=&as=&aty=0&a= " target="_blank">意见反馈</a>
+                    </dd>
+                    <dd>
+                        <a href="https://www.jin10.com/about/index.html#privacy" target="_blank">版权声明</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="hero-footer__r hero-footer__copyright">
+                <p>金十数据 广州金十信息科技有限公司 版权所有
+                    <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备16010774号</a>
+                </p>
+                <p>Copyright © 2013 - 2018 Jin10.com All Rights Reserved</p>
+            </div>
+        </div>
+        <div class="hero-footer__wrap  clear">
+            <div class="hero-footer__r hero-footer__renzheng">
+                <p>
+                    <a href="http://v.pinpaibao.com.cn/authenticate/cert/?site=www.jin10.com&amp;at=business" target="_blank"><img width="48" height="20" src="//cdn.jin10.com/trading_hero/static/img/certification.1c5d039.png" srcset="//cdn.jin10.com/trading_hero/static/img/certification@2x.b42e1c6.png 2x"></a>
+                </p>
+                <p>
+                    <a href="http://si.trustutn.org/info?sn=142160203020335292461&amp;certType=1" target="_blank"><img width="48" height="20" src="//cdn.jin10.com/trading_hero/static/img/renzhenglianmeng.4c9faf7.png" srcset="//cdn.jin10.com/trading_hero/static/img/renzhenglianmeng@2x.828f805.png 2x"></a>
+                </p>
+                <p>
+                    <a href="//www.jin10.com/knet.html" target="_blank"><img width="48" height="20" src="//cdn.jin10.com/trading_hero/static/img/kexinwangzhan.fcb135b.png" srcset="//cdn.jin10.com/trading_hero/static/img/kexinwangzhan@2x.68a19e0.png 2x"></a>
+                </p>
+                <p>
+                    <a href="//www.jin10.com/cecdc.html" target="_blank"><img width="48" height="20" src="//cdn.jin10.com/trading_hero/static/img/chengxinwangzhan.9d699b4.png" srcset="//cdn.jin10.com/trading_hero/static/img/chengxinwangzhan@2x.4a4b433.png 2x"></a>
+                </p>
+                <div class="hero-footer__counselor"><i class="hero-icon hero-icon_counselor"></i> <span>常年法律顾问：广东哲诚律师事务所</span></div>
+            </div>
+        </div>
+    </div>
+</div>    
+</body>
+</html>

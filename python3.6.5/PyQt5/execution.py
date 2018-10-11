@@ -8,11 +8,11 @@
 
 #from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from UI import Ui_MainWindow
+from UI import Ui_closeWinBtn
 
-class Ui(QMainWindow, Ui_MainWindow):
+class Ui(QMainWindow, Ui_closeWinBtn):
     def __init__(self, parent=None):
-        super(Ui_MainWindow, self).__init__()
+        super(Ui_closeWinBtn, self).__init__()
         #self.setupUi(self)
 
 

@@ -25,39 +25,51 @@ if __name__ == "__main__":
 	print(1,time.time())
 	listContent = [x for x in content.split("\n") if x != ""]
 	print(2,time.time())
-	for line in listContent:
+	totle = len(listContent)
+	for count,line in enumerate(listContent):
+		if count % 100000 == 0:
+			print("进度%.5f%%" %(count / totle * 100))
 		listline = line.split('|')
 		listDate.append(listline[3])
 		listTelephone.append(listline[0])
 		listDate_Telephone.append (listline[3] + '_' + listline[0])
 	listDate_Telephone = list(set(listDate_Telephone))
+	listTotle = [x.split('_')[1] for x in listDate_Telephone]
 	listDate = list(set(listDate))
 	listTelephone = list(set(listTelephone))
+	strTotle = '\n'.join(listTotle)
+	strDate = '\n'.join(listDate)
+	strTelephone = '\n'.join(listTelephone)
+
+	fileSave("Totle.txt",strTotle)
+	fileSave("Date.txt",strDate)
+	fileSave("Telephone.txt",strTelephone)
 	print("len(listTelephone) = %s\nlen(listDate) = %s\nlen(listDate_Telephone) = %s\nlen(listContent) = %s" %(len(listTelephone),len(listDate),len(listDate_Telephone),len(listContent)))
-	string = ""
-	init = time.time()
-	totle = len(listDate_Telephone)
-	for k,v in enumerate(listDate_Telephone):
-		string = string + v
-		if k % 100000 == 0:
-			print("拼接-进度%.5f%%" %(k / totle * 100))
-	end = time.time()
-	print("拼接字符串完成！",end - init)
-	totle_1 = len(listTelephone)
-	for k,telephone in enumerate(listTelephone):
-		listTelephoneTimes[telephone] = string.count(telephone)
-		if k % 100000 == 0:
-			print("查找-进度%.5f%%" %(k / totle_1 * 100))
-	listTimesOver3 = []
-	e2nd = time.time()
-	print(3,e2nd - end)
-	# print(listTelephoneTimes)
-	# print(listTimesOver2)
-	for k,v in listTelephoneTimes.items():
-		if v >= 3:
-			listTimesOver3.append(k)
-	stringUnion = ''
-	for x in listTimesOver3:
-		stringUnion = x + "\n" + stringUnion
-	print(stringUnion)
-	fileSave("Over3.txt",stringUnion)
+	# string = ""
+	# init = time.time()
+	# totle = len(listDate_Telephone)
+	# for k,v in enumerate(listDate_Telephone):
+	# 	string = string + v
+	# 		print("拼接-进度%.5f%%" %(k / totle * 100))
+	# 		print("拼接-进度%.5f%%" %(k / totle * 100))
+	# 	if k % 100000 == 0:
+	# end = time.time()
+	# print("拼接字符串完成！",end - init)
+	# totle_1 = len(listTelephone)
+	# for k,telephone in enumerate(listTelephone):
+	# 	listTelephoneTimes[telephone] = string.count(telephone)
+	# 	if k % 100000 == 0:
+	# 		print("查找-进度%.5f%%" %(k / totle_1 * 100))
+	# listTimesOver3 = []
+	# e2nd = time.time()
+	# print(3,e2nd - end)
+	# # print(listTelephoneTimes)
+	# # print(listTimesOver2)
+	# for k,v in listTelephoneTimes.items():
+	# 	if v >= 3:
+	# 		listTimesOver3.append(k)
+	# stringUnion = ''
+	# for x in listTimesOver3:
+	# 	stringUnion = x + "\n" + stringUnion
+	# print(stringUnion)
+	# fileSave("Over3.txt",stringUnion)

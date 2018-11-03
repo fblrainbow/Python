@@ -8,11 +8,11 @@
 
 #from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from closeWin import Ui_Form
+from selectDisplay import Ui_MainWindow
 
-class Ui(QMainWindow, Ui_Form):
+class Ui(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
-        super(Ui_Form, self).__init__()
+        super(Ui_MainWindow, self).__init__()
         #self.setupUi(self)
 
 

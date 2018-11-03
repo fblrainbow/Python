@@ -72,7 +72,7 @@
    <sender>selectDis</sender>
    <signal>clicked(bool)</signal>
    <receiver>dis1</receiver>
-   <slot>hide()</slot>
+   <slot>setVisible(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>172</x>
@@ -81,6 +81,22 @@
     <hint type="destinationlabel">
      <x>126</x>
      <y>223</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>selectDis</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>dis2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>204</x>
+     <y>141</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>240</x>
+     <y>221</y>
     </hint>
    </hints>
   </connection>

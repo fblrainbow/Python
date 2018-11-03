@@ -33,7 +33,8 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.selectDis.clicked['bool'].connect(self.dis1.hide)
+        self.selectDis.clicked['bool'].connect(self.dis1.setVisible)
+        self.selectDis.clicked['bool'].connect(self.dis2.setEnabled)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

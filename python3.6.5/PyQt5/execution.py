@@ -13,15 +13,14 @@ from selectDisplay import Ui_MainWindow
 class Ui(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(Ui_MainWindow, self).__init__()
-        #self.setupUi(self)
+        super(QMainWindow, self).__init__()
+        self.setupUi(self)
 
 
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
-    MainWindow = QMainWindow()
     ui = Ui()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    ui.show()
     sys.exit(app.exec_())
 

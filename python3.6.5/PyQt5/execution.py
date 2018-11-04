@@ -8,21 +8,15 @@
 
 #from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QFileDialog
-from selectDisplay import Ui_MainWindow
+from MainForm2 import Ui_MainWindow
+from MainWin02 import Ui_Form
 
-class Ui(QMainWindow, Ui_MainWindow):
+class Ui(QMainWindow, Ui_Form):
     def __init__(self):
         super(Ui, self).__init__()
         super(QMainWindow, self).__init__()
         self.setupUi(self)
-        print(dir(self))
-        #菜单点击关闭时，连接槽函数close()
-        self.Close.triggered.connect(self.close)
-        self.Open.triggered.connect(self.openMsg)
-    def openMsg(self):
-        file, ok = QFileDialog.getOpenFileName(self, "打开", "F:/", "ALL dffsfs Files (*);;Text Files (*.txt)")
-        self.statusbar.showMessage(file)
-
+        
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)

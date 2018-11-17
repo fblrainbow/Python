@@ -40,3 +40,26 @@ def get_FileSize(filePath):
     fsize = os.path.getsize(filePath)
     fsize = fsize/float(1024*1024)
     return round(fsize,4)
+
+class CSDN(object):
+    def __init__(self,url):
+        self.url = url
+    def getHtmlList(self):
+        code = getCode(self.url)
+        htmlStruct = etree.HTML(code)
+        name = htmlStruct.xpath('/html/head/meta[2]/@content')
+        level = htmlStruct.xpath('/html/body/div[2]/div[1]/div/div[2]/div/ul/li[1]/span/svg/use/text()')
+        visitors = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[2]/span/text()')
+        create = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[3]/span/text()')
+        transfer = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[4]/span/text()')
+        rank = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[5]/span/text()')
+        remarks = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[6]/span/text()')
+        print(name,level,visitors,create,transfer,rank,remarks)
+        stringCSDN = "re"
+
+if __name__ == "__main__":
+    # url = "https://blog.csdn.net/qq_37608398/article/details/83480197"   #总网站
+    url = "https://me.csdn.net/qq_37608398"   #总网站
+
+    myCSDN = CSDN(url)
+    myCSDN.getHtmlList()

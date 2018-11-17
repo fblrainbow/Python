@@ -19,7 +19,7 @@ class lineEditDemo(QWidget):
 		self.setWindowTitle("QLineEdit例子")
 		
 	def enterPress(self):
-		tmp = self.e1.text()
+		tmp = e1.text()
 		self.l1.setText(tmp)
 		print(tmp)
 if __name__ == "__main__":

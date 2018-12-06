@@ -43,17 +43,18 @@ class CSDN(object):
     def getHtmlList(self):
         code = getCode(self.url)
         htmlStruct = etree.HTML(code)
-        name = htmlStruct.xpath('/html/head/meta[2]/@content') #//*[@id="csdnc-bloglevel-6"]
-        level = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[1]/span/svg/use/text()')
-        visitors = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[2]/span/text()')
-        create = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[3]/span/text()')
-        transfer = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[4]/span/text()')
-        fans = htmlStruct.xpath('/html/body/div[1]/div[2]/div[3]/ul/li[1]/em/text()')
-        rank = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[5]/span/text()')
-        remarks = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[6]/span/text()')
-        like = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[7]/span/text()')
+        name = htmlStruct.xpath('//*[@id="uid"]/text()')[0] #//*[@id="csdnc-bloglevel-6"]
+        level = htmlStruct.xpath('//*[@id="asideProfile"]/div[3]/dl[1]/dd/a/@title')[0].split('级')[0]
+        visitors = htmlStruct.xpath('//*[@id="asideProfile"]/div[3]/dl[2]/dd/@title')[0]
+        create = htmlStruct.xpath('//*[@id="asideProfile"]/div[2]/dl[1]/dd/a/span/text()')[0]
+        score = htmlStruct.xpath('//*[@id="asideProfile"]/div[3]/dl[3]/dd/@title')[0]
+        # transfer = htmlStruct.xpath('/html/body/div[1]/div[1]/div/div[2]/div/ul/li[4]/span/text()')
+        fans = htmlStruct.xpath('//*[@id="fan"]/text()')[0]
+        rank = htmlStruct.xpath('//*[@id="asideProfile"]/div[3]/dl[4]/dd/text()')[0]
+        remarks = htmlStruct.xpath('//*[@id="asideProfile"]/div[2]/dl[4]/dd/span/text()')[0]
+        like = htmlStruct.xpath('//*[@id="asideProfile"]/div[2]/dl[3]/dd/span/text()')[0]
         self.name = name
-        print(name,level,visitors,create,transfer,rank,remarks,fans,like)
+        print(name,level,visitors,create,rank,remarks,score,fans,like)
         #INSERT INTO `csdn`.`csdn` (`name`, `url`, `createChapter`, `fans`, `like`, `remark`, `level`, `visitors`, `score`, `rank`) VALUES ('A', 'A', '123', '12', '23', '123', '123', '123', '123', '123');
 
         # stringCSDN = "insert into csdn( `url`, `createChapter`, `fans`, `likes`, `remark`, `levels`, `visitors`, `score`, `rank`) VALUES ( `%s`, `%s`, `%s`, `%s`, `%s`,`%s`, `%s`, `%s`, `%s`)"%(self.url,create[0],fans[0],like[0],remarks[0],6,visitors[0], 0,rank[0])
@@ -61,12 +62,13 @@ class CSDN(object):
         #INSERT INTO `csdn`.`csdn` (`csdnname`, `url`, `createChapter`, `fans`, `likes`, `remark`, `levels`, `visitors`, `score`, `rank`) VALUES ('A', 'A', '123', '12', '23', '123', '123', '123', '123', '123');
         #INSERT INTO `csdn`.`csdn` (`url`, `createChapter`, `fans`, `likes`, `remark`, `levels`, `visitors`, `score`, `rank`) VALUES ('A', '123', '12', '23', '123', '123', '123', '123', '123');
         strTime = datetime.datetime.now().strftime("%Y%m%d-%H:%M:%S")
-        stringCSDN = "INSERT INTO `csdn`.`csdn` (`csdnname`, `url`, `createChapter`, `fans`, `likes`, `remark`, `levels`, `visitors`, `score`, `rank`,`dataTime`) VALUES ( '%s','%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s','%s');" %(name[0],self.url,create[0],fans[0],like[0],remarks[0],6,visitors[0], 0,rank[0],strTime)
+        stringCSDN = "INSERT INTO `csdn`.`csdn` (`csdnname`, `url`, `createChapter`, `fans`, `likes`, `remark`, `levels`, `visitors`, `score`, `rank`,`dataTime`) VALUES ( '%s','%s', '%s', '%s', '%s', '%s','%s', '%s', '%s', '%s','%s');" %(name,self.url,create,fans,like,remarks,level,visitors,score,rank,strTime)
 
+        print(stringCSDN)
         dataDeal(stringCSDN)
 if __name__ == "__main__":
     # url = "https://blog.csdn.net/qq_37608398/article/details/83480197"   #总网站
-    url = "https://me.csdn.net/qq_37608398"   #总网站
+    url = "https://blog.csdn.net/qq_37608398/article/details/80358874"   #总网站
 
     myCSDN = CSDN(url)
     myCSDN.getHtmlList()

@@ -13,23 +13,28 @@ from PyQt5.QtWidgets import *
 class InputdialogDemo(QWidget):
     def __init__(self, parent=None):
         super(InputdialogDemo, self).__init__(parent)
+        self.workList = openWorkBook("csj.xlsx")
         layout = QFormLayout()
         self.btn2 = QPushButton("搜索种群")
-        self.btn2.clicked.connect(self.getIext)
         self.le2 = QLineEdit()
+        self.btn2.clicked.connect(self.getIext)
         layout.addRow(self.btn2,self.le2)
         self.setLayout(layout)
         self.setWindowTitle("种群数据搜索")
         self.resize(300,150)
-          
-    def getIext(self):    
-        text, ok = QInputDialog.getText(self, '搜索', '输入种群:')
-        if ok:
-            self.le2.setText(str(text))
-            self.workList = openWorkBook("csj.xlsx")
-            self.retList = searchData(text,self.workList)
-            print(self.retList)
-
+    def getIext(self):
+        text = self.le2.text()
+        self.retList = searchData(text,self.workList)
+        print(self.retList)
+        self.model = QStandardItemModel(1,17);
+        self.model.setHorizontalHeaderLabels(['种群','穗分枝数(个)','分支籽粒充实度(%)','a','b','R2','GR50(g a.i.ha-1)','95%置信区间(GR50)','IR','a','b','R2','GR50(g a.i.ha-1)','95%置信区间(GR50)','IR','采样地点','生境'])
+        item = QStandardItem('0')
+        self.model.setItem(0,0,item)
+        self.tableView = QTableView()
+        self.tableView.setModel(self.model)
+        dlgLayout = QVBoxLayout();
+        dlgLayout.addWidget(self.tableView)
+        self.setLayout(dlgLayout)
 def openWorkBook(fileName):
     workbook = xlrd.open_workbook(fileName)
     sheetName_0 = workbook.sheet_by_name("不同种群牛筋草对百草枯的抗药性水平")
